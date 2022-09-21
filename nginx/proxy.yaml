@@ -1,0 +1,19 @@
+version: '3'
+services:
+
+    proxy:
+        image: my-nginx:latest
+        container_name: proxy
+        build:
+         context: ./nginx/
+         dockerfile: Dockerfile
+        restart: always
+        hostname: proxy
+        ports:
+          - "8080:80"
+        environments:
+          - KIBANA_SERVER: kibana:5601
+        depends_on:
+          - kibana
+        volumes:
+          - ./default:/etc/nginx/nginx.conf
