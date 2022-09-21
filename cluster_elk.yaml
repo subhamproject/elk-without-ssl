@@ -67,6 +67,12 @@ services:
           ELASTIC_SERVERS: elastic1:9200,elastic2:9200,elastic3:9200
         volumes:
           - ./kibana.yml:/etc/kibana/kibana.yml
+        healthcheck:
+          test: ["CMD-SHELL", "wget -O /dev/null http://localhost:5601 || exit 1"]
+          interval: "2s"
+          timeout: "60s"
+          retries: 30
+          start_period: "5s"
 
     filebeat:
         image: my-beat:latest
