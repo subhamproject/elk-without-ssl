@@ -13,3 +13,6 @@ cluster.remote.connect: false
 node.name: ${HOSTNAME}
 cluster.initial_master_nodes: ["elastic1", "elastic2", "elastic3"]
 xpack.monitoring.collection.enabled: true
+cluster.routing.allocation.disk.watermark.low: "95%"
+cluster.routing.allocation.disk.watermark.high: "96%"
+cluster.routing.allocation.disk.watermark.flood_stage: "97%"
