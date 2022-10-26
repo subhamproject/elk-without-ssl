@@ -72,8 +72,7 @@ services:
           interval: "2s"
           timeout: "60s"
           retries: 30
-          start_period: "5s"
-
+          
     filebeat:
         image: my-beat:latest
         container_name: filebeat
